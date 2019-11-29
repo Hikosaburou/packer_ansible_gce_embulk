@@ -1,0 +1,2 @@
+# packer_ansible_gce_embulk
+GCEでEmbulk実行イメージを作ってみる
