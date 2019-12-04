@@ -12,8 +12,10 @@ sudo adduser --disabled-password --gecos '' embulk
 
 sudo curl --create-dirs -o /home/embulk/.embulk/bin/embulk --silent -L "https://dl.embulk.org/embulk-latest.jar"
 sudo chmod +x /home/embulk/.embulk/bin/embulk
-sudo sh -c "echo 'export PATH=\"$HOME/.embulk/bin:$PATH\"' >> /home/embulk/.bashrc"
+echo 'export PATH="$HOME/.embulk/bin:$PATH"' >> ~/tmp_bashrc
+sudo sh -c "cat ${HOME}/tmp_bashrc >> /home/embulk/.bashrc"
 sudo chown -R embulk:embulk /home/embulk/
+rm ~/tmp_bashrc
 
 sudo su - embulk <<EOF
 /home/embulk/.embulk/bin/embulk gem install embulk-input-sqlserver
